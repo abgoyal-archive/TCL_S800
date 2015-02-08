@@ -1,0 +1,18 @@
+step 1) Compiler environment:
+export PATH=~/Your_Toolchain_PATH/ 
+for_example: /alps/prebuilt/linux-x86/toolchain/arm-linux-androideabi-4.4.x/bin:$PATH
+
+
+step 2) Compile
+Buile command:
+uboot
+=====
+cd bootable/bootloader/uboot
+TARGET_PRODUCT=jrd77_cu_ics2 make jrd77_cu_ics2_config
+TARGET_PRODUCT=jrd77_cu_ics2 make
+
+kernel
+======
+cd kernel 
+cp mediatek-configs .config
+TARGET_PRODUCT=jrd77_cu_ics2 MTK_ROOT_CUSTOM=../mediatek/custom make
